@@ -51,6 +51,10 @@ export const postType = defineType({
       type: 'blockContent',
     }),
     defineField({
+      name: 'content',
+      type: 'blockContent',
+    }),
+    defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',

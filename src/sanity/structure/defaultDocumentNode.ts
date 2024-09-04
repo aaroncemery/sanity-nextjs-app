@@ -5,17 +5,8 @@ import {
 } from '@planetary/sanity-plugin-preflight';
 import { RocketIcon } from '@sanity/icons';
 import type { DefaultDocumentNodeResolver } from 'sanity/structure';
-import { useSecrets, SettingsView } from '@sanity/studio-secrets';
 
-const namespace = 'DataForSeo';
-
-const pluginConfigKeys = [
-  {
-    key: process.env.DATA_FOR_SEO_API_KEY,
-    title: 'Data for SEO API Key',
-    description: 'API key for Data for SEO',
-  },
-];
+const namespace = 'SANITY_SECRETS';
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
@@ -31,16 +22,16 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
               plugins: [
                 SEOAudit({
                   secretsNamespace: namespace,
-                  baseUrl: 'https://localhost:3000',
-                  rules: {
-                    flash: 'off',
-                    is_www: {
-                      label: 'Compact domain',
-                      description: 'The domain should not include www',
-                      severity: 'error',
-                      expected: false,
-                    },
-                  },
+                  baseUrl: 'https://sanity-nextjs-app-beige.vercel.app/',
+                  // rules: {
+                  //   flash: 'off',
+                  //   is_www: {
+                  //     label: 'Compact domain',
+                  //     description: 'The domain should not include www',
+                  //     severity: 'error',
+                  //     expected: false,
+                  //   },
+                  // },
                 }),
                 DeadLinks({
                   content: 'body',
