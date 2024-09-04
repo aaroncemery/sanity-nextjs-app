@@ -23,15 +23,15 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
                 SEOAudit({
                   secretsNamespace: namespace,
                   baseUrl: 'https://sanity-nextjs-app-beige.vercel.app/',
-                  // rules: {
-                  //   flash: 'off',
-                  //   is_www: {
-                  //     label: 'Compact domain',
-                  //     description: 'The domain should not include www',
-                  //     severity: 'error',
-                  //     expected: false,
-                  //   },
-                  // },
+                  rules: {
+                    flash: 'off',
+                    is_www: {
+                      label: 'Compact domain',
+                      description: 'The domain should not include www',
+                      severity: 'error',
+                      expected: false,
+                    },
+                  },
                 }),
                 DeadLinks({
                   content: 'body',
