@@ -5,6 +5,7 @@ import {
 } from '@planetary/sanity-plugin-preflight';
 import { RocketIcon } from '@sanity/icons';
 import type { DefaultDocumentNodeResolver } from 'sanity/structure';
+import { useDocumentPane } from 'sanity/structure';
 
 const namespace = 'SANITY_SECRETS';
 

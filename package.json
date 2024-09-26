@@ -17,6 +17,7 @@
   "dependencies": {
     "@planetary/sanity-plugin-preflight": "^1.1.1",
     "@sanity/assist": "^3.0.6",
+    "@sanity/document-internationalization": "^3.0.1",
     "@sanity/icons": "^3.4.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/studio-secrets": "^3.0.0",
