@@ -10,6 +10,7 @@ import { structureTool } from 'sanity/structure';
 import { assist } from '@sanity/assist';
 import { presentationTool } from 'sanity/presentation';
 import { defaultDocumentNode } from './src/sanity/structure/defaultDocumentNode';
+import { documentInternationalization } from '@sanity/document-internationalization';
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from './src/sanity/env';
@@ -36,6 +37,28 @@ export default defineConfig({
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
-    assist(),
+    assist({
+      translate: {
+        document: {
+          // The name of the field that holds the current language
+          // in the form of a language code e.g. 'en', 'fr', 'nb_NO'.
+          // Required
+          languageField: 'language',
+          // Optional extra filter for document types.
+          // If not set, translation is enabled for all documents
+          // that has a field with the name defined above.
+          documentTypes: ['post'],
+        },
+      },
+    }),
+    documentInternationalization({
+      // Required configuration
+      supportedLanguages: [
+        { id: 'es', title: 'Spanish' },
+        { id: 'en', title: 'English' },
+        { id: 'no', title: 'Norwegian' },
+      ],
+      schemaTypes: ['post'],
+    }),
   ],
 });

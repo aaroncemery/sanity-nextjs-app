@@ -11,6 +11,18 @@ export const postType = defineType({
       name: 'title',
       type: 'string',
     }),
+    {
+      name: 'language',
+      title: 'Language',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'English', value: 'en_US' },
+          { title: 'Norwegian Bokmål', value: 'nb_no' },
+          { title: 'Spanish', value: 'es' },
+        ],
+      },
+    },
     defineField({
       name: 'slug',
       type: 'slug',
